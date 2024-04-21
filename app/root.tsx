@@ -7,6 +7,8 @@ import {
 } from '@remix-run/react';
 
 import type { LinksFunction } from '@remix-run/node';
+
+import Shell from '~/components/shell/Shell';
 import stylesheet from '~/tailwind.css?url';
 
 export const links: LinksFunction = () => [
@@ -26,7 +28,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Links />
       </head>
       <body>
-        {children}
+        <Shell>{children}</Shell>
         <ScrollRestoration />
         <Scripts />
       </body>
