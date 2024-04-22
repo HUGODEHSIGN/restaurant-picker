@@ -1,3 +1,3 @@
 export default function ListPage() {
-  return <div>This is the list page</div>;
+  return <div>this is the list page</div>;
 }

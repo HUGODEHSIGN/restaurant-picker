@@ -34,3 +34,6 @@ export const cuisinesToRestaurants = pgTable('cuisinesToRestaurants', {
     .notNull()
     .references(() => restaurants.id),
 });
+
+export type Cuisines = typeof cuisines.$inferSelect; // return type when queried
+export type NewCuisines = typeof cuisines.$inferInsert;
