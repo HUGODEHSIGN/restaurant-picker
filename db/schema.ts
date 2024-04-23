@@ -21,9 +21,15 @@ export const restaurants = pgTable('restaurants', {
   locationId: integer('location_id')
     .notNull()
     .references(() => locations.id),
-  mealId: integer('meal_id')
+});
+
+export const mealsToRestaurants = pgTable('mealsToRestaurants', {
+  mealId: integer('cuisine_id')
     .notNull()
     .references(() => meals.id),
+  restaurantId: integer('restaurant_id')
+    .notNull()
+    .references(() => restaurants.id),
 });
 
 export const cuisinesToRestaurants = pgTable('cuisinesToRestaurants', {
@@ -35,5 +41,5 @@ export const cuisinesToRestaurants = pgTable('cuisinesToRestaurants', {
     .references(() => restaurants.id),
 });
 
-export type Cuisines = typeof cuisines.$inferSelect; // return type when queried
+export type Cuisines = typeof cuisines.$inferSelect;
 export type NewCuisines = typeof cuisines.$inferInsert;
