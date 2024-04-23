@@ -1,7 +1,7 @@
 import type { MetaFunction } from '@remix-run/node';
-import CuisineSelect from '~/components/Filters/CuisineSelect';
-import Location from '~/components/Filters/Location';
-import Meal from '~/components/Filters/Meal';
+import CuisineSelect from '~/components/filters/CuisineSelect';
+import Location from '~/components/filters/Location';
+import Meal from '~/components/filters/Meal';
 import { Button } from '~/components/ui/button';
 
 import {
