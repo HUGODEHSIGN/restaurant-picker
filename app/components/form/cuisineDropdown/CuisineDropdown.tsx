@@ -18,7 +18,7 @@ export type cuisineStateInitType = {
 };
 
 export default function CuisineDropdown() {
-  const cuisineData = useLoaderData<typeof loader>();
+  const { cuisineData } = useLoaderData<typeof loader>();
 
   const cuisineStateInit = cuisineData.reduce((obj, { id }) => {
     obj[id] = false;

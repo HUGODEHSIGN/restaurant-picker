@@ -14,7 +14,7 @@ import {
 } from '~/components/ui/card';
 
 import { useLoaderData } from '@remix-run/react';
-import db from 'db/drizzle';
+import { db } from 'db/drizzle';
 import { cuisines } from 'db/schema';
 import { useState } from 'react';
 
