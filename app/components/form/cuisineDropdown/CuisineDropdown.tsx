@@ -1,20 +1,19 @@
 import { DropdownMenuCheckboxItemProps } from '@radix-ui/react-dropdown-menu';
 import { useLoaderData } from '@remix-run/react';
 import { useState } from 'react';
-import { Button } from '~/components/ui/button';
+import CuisineTriggerButton from '~/components/form/cuisineDropdown/CuisineTriggerButton';
 import {
   DropdownMenu,
   DropdownMenuCheckboxItem,
   DropdownMenuContent,
   DropdownMenuLabel,
   DropdownMenuSeparator,
-  DropdownMenuTrigger,
 } from '~/components/ui/dropdown-menu';
 import { loader } from '~/routes/add';
 
 type Checked = DropdownMenuCheckboxItemProps['checked'];
 
-type cuisineStateInitType = {
+export type cuisineStateInitType = {
   [key: number]: Checked;
 };
 
@@ -37,10 +36,15 @@ export default function CuisineDropdown() {
 
   return (
     <DropdownMenu>
-      <DropdownMenuTrigger asChild>
-        <Button variant="outline">+ Location</Button>
-      </DropdownMenuTrigger>
-      <DropdownMenuContent className="w-56">
+      <CuisineTriggerButton
+        isSelected={isSelected}
+        setIsSelected={setIsSelected}
+        cuisineData={cuisineData}
+      />
+
+      <DropdownMenuContent
+        align="start"
+        className="w-56">
         <DropdownMenuLabel>Cuisine</DropdownMenuLabel>
         <DropdownMenuSeparator />
         {cuisineData.map(({ id, name }) => (
