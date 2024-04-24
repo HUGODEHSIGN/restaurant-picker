@@ -11,7 +11,7 @@ import { loader } from '~/routes/add';
 
 export default function LocationSelect() {
   const { locationData } = useLoaderData<typeof loader>();
-  const [location, setLocation] = useState<string>();
+  const [, setLocation] = useState<string>();
   return (
     <Select onValueChange={setLocation}>
       <SelectTrigger className="w-[180px]">

@@ -1,6 +1,6 @@
 import { ActionFunctionArgs, json } from '@remix-run/node';
 import { db } from 'db/drizzle';
-import { cuisines, locations } from 'db/schema';
+import { cuisines, locations, meals } from 'db/schema';
 import AddForm from '~/components/form/AddForm';
 
 export async function action({ request }: ActionFunctionArgs) {
@@ -19,7 +19,8 @@ export async function loader() {
   const data = await db.transaction(async (tx) => {
     const cuisineData = await tx.select().from(cuisines);
     const locationData = await tx.select().from(locations);
-    return { cuisineData, locationData };
+    const mealData = await tx.select().from(meals);
+    return { cuisineData, locationData, mealData };
   });
 
   return json(data);
