@@ -5,17 +5,14 @@ import AddForm from '~/components/form/AddForm';
 
 export async function action({ request }: ActionFunctionArgs) {
   const body = await request.formData();
-  const name = body.get('name') as string;
-  console.log(name);
+  // const name = body.get('name') as string;
+  const data = Object.fromEntries(body.entries());
+  console.log(data);
   return null;
   // return await db.insert(locations).values({ name });
 }
 
 export async function loader() {
-  // const locationData = await db.select().from(locations);
-
-  // const cuisineData = await db.select().from(cuisines);
-
   const data = await db.transaction(async (tx) => {
     const cuisineData = await tx.select().from(cuisines);
     const locationData = await tx.select().from(locations);

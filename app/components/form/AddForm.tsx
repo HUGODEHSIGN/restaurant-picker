@@ -11,9 +11,10 @@ export default function AddForm() {
       <LocationSelect />
       <CuisineDropdown />
       <MealDropdown />
+
       <Input
         type="text"
-        name="name"
+        name="restaurant"
       />
       <Button type="submit">Submit</Button>
     </Form>

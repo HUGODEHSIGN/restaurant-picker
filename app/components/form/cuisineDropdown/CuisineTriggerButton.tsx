@@ -1,29 +1,23 @@
 import { Cuisines } from 'db/schema';
-import { cuisineStateInitType } from '~/components/form/cuisineDropdown/CuisineDropdown';
 import { Badge } from '~/components/ui/badge';
 import { Button } from '~/components/ui/button';
 import { DropdownMenuTrigger } from '~/components/ui/dropdown-menu';
 
 type CuisineTriggerButtonProps = {
-  isSelected: cuisineStateInitType;
-  setIsSelected: React.Dispatch<React.SetStateAction<cuisineStateInitType>>;
+  cuisines: number[];
+  setCuisines: React.Dispatch<React.SetStateAction<number[]>>;
   cuisineData: Cuisines[];
 };
 export default function CuisineTriggerButton({
-  isSelected,
-  setIsSelected,
+  cuisines,
+  setCuisines,
   cuisineData,
 }: CuisineTriggerButtonProps) {
   function handleRemove(
     e: React.MouseEvent<HTMLDivElement, MouseEvent>,
-    id: number
+    badgeId: number
   ) {
-    console.log('test');
-    const newState = { ...isSelected };
-    newState[id] = false;
-    console.log(newState);
-    setIsSelected(newState);
-    e.stopPropagation();
+    setCuisines((prev) => [...prev].filter((stateId) => badgeId !== stateId));
   }
 
   return (
@@ -38,9 +32,10 @@ export default function CuisineTriggerButton({
       <div className="flex flex-row gap-2 bg-white border p-2 rounded-r-md">
         {cuisineData.map(
           ({ id, name }) =>
-            isSelected[id] && (
+            cuisines.includes(id) && (
               <Badge
                 onClick={(e) => handleRemove(e, id)}
+                className="cursor-pointer"
                 key={id}>
                 {name}
               </Badge>

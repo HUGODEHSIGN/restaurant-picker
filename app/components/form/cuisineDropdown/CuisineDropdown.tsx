@@ -13,49 +13,44 @@ import { loader } from '~/routes/add';
 
 type Checked = DropdownMenuCheckboxItemProps['checked'];
 
-export type cuisineStateInitType = {
-  [key: number]: Checked;
-};
+// export type cuisineStateInitType = {
+//   [key: number]: Checked;
+// };
 
 export default function CuisineDropdown() {
   const { cuisineData } = useLoaderData<typeof loader>();
 
-  const cuisineStateInit = cuisineData.reduce((obj, { id }) => {
-    obj[id] = false;
-    return obj;
-  }, {} as cuisineStateInitType);
-
-  const [isSelected, setIsSelected] = useState(cuisineStateInit);
-
-  function handleSelect(id: number) {
-    const newState = { ...isSelected };
-    newState[id] = !newState[id];
-    console.log(newState);
-    setIsSelected(newState);
-  }
+  const [cuisines, setCuisines] = useState<number[]>([]);
 
   return (
-    <DropdownMenu>
-      <CuisineTriggerButton
-        isSelected={isSelected}
-        setIsSelected={setIsSelected}
-        cuisineData={cuisineData}
+    <>
+      <input
+        type="hidden"
+        name="cuisines"
+        value={JSON.stringify(cuisines)}
       />
+      <DropdownMenu>
+        <CuisineTriggerButton
+          cuisines={cuisines}
+          setCuisines={setCuisines}
+          cuisineData={cuisineData}
+        />
 
-      <DropdownMenuContent
-        align="start"
-        className="w-56">
-        <DropdownMenuLabel>Cuisine</DropdownMenuLabel>
-        <DropdownMenuSeparator />
-        {cuisineData.map(({ id, name }) => (
-          <DropdownMenuCheckboxItem
-            checked={isSelected[id]}
-            onCheckedChange={() => handleSelect(id)}
-            key={id}>
-            {name}
-          </DropdownMenuCheckboxItem>
-        ))}
-      </DropdownMenuContent>
-    </DropdownMenu>
+        <DropdownMenuContent
+          align="start"
+          className="w-56">
+          <DropdownMenuLabel>Cuisine</DropdownMenuLabel>
+          <DropdownMenuSeparator />
+          {cuisineData.map(({ id, name }) => (
+            <DropdownMenuCheckboxItem
+              checked={cuisines.includes(id) as Checked}
+              onCheckedChange={() => setCuisines((prev) => [...prev, id])}
+              key={id}>
+              {name}
+            </DropdownMenuCheckboxItem>
+          ))}
+        </DropdownMenuContent>
+      </DropdownMenu>
+    </>
   );
 }

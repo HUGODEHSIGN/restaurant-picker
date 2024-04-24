@@ -35,27 +35,34 @@ export default function MealDropdown() {
   }
 
   return (
-    <DropdownMenu>
-      <MealTriggerButton
-        meals={meals}
-        setMeals={setMeals}
-        mealData={mealData}
+    <>
+      <input
+        type="hidden"
+        name="meals"
+        value={JSON.stringify(meals)}
       />
+      <DropdownMenu>
+        <MealTriggerButton
+          meals={meals}
+          setMeals={setMeals}
+          mealData={mealData}
+        />
 
-      <DropdownMenuContent
-        align="start"
-        className="w-56">
-        <DropdownMenuLabel>Meals</DropdownMenuLabel>
-        <DropdownMenuSeparator />
-        {mealData.map(({ id, name }) => (
-          <DropdownMenuCheckboxItem
-            checked={meals[id]}
-            onCheckedChange={() => handleSelect(id)}
-            key={id}>
-            {name}
-          </DropdownMenuCheckboxItem>
-        ))}
-      </DropdownMenuContent>
-    </DropdownMenu>
+        <DropdownMenuContent
+          align="start"
+          className="w-56">
+          <DropdownMenuLabel>Meals</DropdownMenuLabel>
+          <DropdownMenuSeparator />
+          {mealData.map(({ id, name }) => (
+            <DropdownMenuCheckboxItem
+              checked={meals[id]}
+              onCheckedChange={() => handleSelect(id)}
+              key={id}>
+              {name}
+            </DropdownMenuCheckboxItem>
+          ))}
+        </DropdownMenuContent>
+      </DropdownMenu>
+    </>
   );
 }
