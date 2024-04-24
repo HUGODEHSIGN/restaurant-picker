@@ -1,4 +1,5 @@
 import { useLoaderData } from '@remix-run/react';
+import { useState } from 'react';
 import {
   Select,
   SelectContent,
@@ -10,8 +11,9 @@ import { loader } from '~/routes/add';
 
 export default function LocationSelect() {
   const { locationData } = useLoaderData<typeof loader>();
+  const [location, setLocation] = useState<string>();
   return (
-    <Select>
+    <Select onValueChange={setLocation}>
       <SelectTrigger className="w-[180px]">
         <SelectValue placeholder="Theme" />
       </SelectTrigger>
