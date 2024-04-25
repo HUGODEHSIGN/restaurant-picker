@@ -1,5 +1,5 @@
 import { Form } from '@remix-run/react';
-import CuisineDropdown from '~/components/form/cuisineDropdown/CuisineDropdown';
+import CuisineDropdownState from '~/components/form/cuisineDropdown/CuisineDropdownState';
 import LocationSelect from '~/components/form/locationSelect/LocationSelect';
 import MealDropdown from '~/components/form/mealsDropdown/MealsDropdown';
 import { Button } from '~/components/ui/button';
@@ -9,7 +9,7 @@ export default function AddForm() {
   return (
     <Form method="post">
       <LocationSelect />
-      <CuisineDropdown />
+      <CuisineDropdownState />
       <MealDropdown />
 
       <Input
