@@ -1,6 +1,6 @@
 import { useLoaderData } from "@remix-run/react";
 import { Badge } from "~/components/ui/badge";
-import { loader } from "~/routes/add";
+import { loader } from "~/routes/add.restaurant";
 
 type CuisineBadgeContainerProps = {
     cuisines: number[];

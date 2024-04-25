@@ -1,7 +1,7 @@
 import { useLoaderData } from "@remix-run/react";
 import handleToggleItem from "~/components/form/helpers/handleToggleItem";
 import { DropdownMenuCheckboxItem } from "~/components/ui/dropdown-menu";
-import { loader } from "~/routes/add";
+import { loader } from "~/routes/add.restaurant";
 import { Checked } from "~/types/etc";
 
 type CuisineDropdownItemsProps = {

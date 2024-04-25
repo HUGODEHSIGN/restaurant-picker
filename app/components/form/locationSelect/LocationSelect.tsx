@@ -7,7 +7,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from '~/components/ui/select';
-import { loader } from '~/routes/add';
+import { loader } from '~/routes/add.restaurant';
 
 export default function LocationSelect() {
   const { locationData } = useLoaderData<typeof loader>();

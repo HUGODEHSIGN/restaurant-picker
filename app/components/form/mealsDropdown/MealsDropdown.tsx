@@ -9,7 +9,7 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
 } from '~/components/ui/dropdown-menu';
-import { loader } from '~/routes/add';
+import { loader } from '~/routes/add.restaurant';
 
 type Checked = DropdownMenuCheckboxItemProps['checked'];
 
