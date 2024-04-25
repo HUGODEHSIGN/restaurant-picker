@@ -1,5 +1,5 @@
-import CuisineDropdownContent from '~/components/form/cuisineDropdown/CuisineContent/CuisineDropdownContent';
-import CuisineDropdownTrigger from '~/components/form/cuisineDropdown/CuisineTrigger/CuisineDropdownTrigger';
+import CuisineDropdownContent from '~/components/restaurantForm/cuisineDropdown/CuisineContent/CuisineDropdownContent';
+import CuisineDropdownTrigger from '~/components/restaurantForm/cuisineDropdown/CuisineTrigger/CuisineDropdownTrigger';
 import { DropdownMenu } from '~/components/ui/dropdown-menu';
 
 type CuisineDropdownComponentProps = {

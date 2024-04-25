@@ -1,4 +1,4 @@
-import CuisineBadgeContainer from '~/components/form/cuisineDropdown/CuisineTrigger/CuisineBadgeContainer';
+import CuisineBadgeContainer from '~/components/restaurantForm/cuisineDropdown/CuisineTrigger/CuisineBadgeContainer';
 import { Button } from '~/components/ui/button';
 import { DropdownMenuTrigger } from '~/components/ui/dropdown-menu';
 
@@ -10,7 +10,6 @@ export default function CuisineDropdownTrigger({
   cuisines,
   setCuisines,
 }: CuisineDropdownTriggerProps) {
-
   return (
     <div className="flex flex-row w-fit">
       <DropdownMenuTrigger asChild>
@@ -20,7 +19,10 @@ export default function CuisineDropdownTrigger({
           + Cuisine
         </Button>
       </DropdownMenuTrigger>
-     <CuisineBadgeContainer cuisines={cuisines} setCuisines={setCuisines} />
+      <CuisineBadgeContainer
+        cuisines={cuisines}
+        setCuisines={setCuisines}
+      />
     </div>
   );
 }

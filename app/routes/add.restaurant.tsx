@@ -1,7 +1,7 @@
 import { ActionFunctionArgs, json } from '@remix-run/node';
 import { db } from 'db/drizzle';
 import { cuisines, locations, meals } from 'db/schema';
-import AddForm from '~/components/form/AddForm';
+import RestaurantForm from '~/components/restaurantForm/RestaurantForm';
 
 export async function action({ request }: ActionFunctionArgs) {
   const body = await request.formData();
@@ -24,5 +24,5 @@ export async function loader() {
 }
 
 export default function Page() {
-  return <AddForm />;
+  return <RestaurantForm />;
 }
