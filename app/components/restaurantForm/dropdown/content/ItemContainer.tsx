@@ -1,26 +1,28 @@
-import { useLoaderData } from '@remix-run/react';
+import handleIsSelected from '~/components/restaurantForm/helpers/handleIsSelected';
 import handleToggleItem from '~/components/restaurantForm/helpers/handleToggleItem';
 
 import { DropdownMenuCheckboxItem } from '~/components/ui/dropdown-menu';
-import { loader } from '~/routes/add.restaurant';
 import { Checked } from '~/types/etc';
 
 type ItemContainerProps = {
   inputState: number[];
   setInputState: React.Dispatch<React.SetStateAction<number[]>>;
+  loaderData: {
+    id: number;
+    name: string;
+  }[];
 };
 
-export default function ItemContainerProps({
+export default function ItemContainer({
   inputState,
   setInputState,
+  loaderData,
 }: ItemContainerProps) {
-  const { cuisineData } = useLoaderData<typeof loader>();
-
   return (
     <>
-      {cuisineData.map(({ id, name }) => (
+      {loaderData.map(({ id, name }) => (
         <DropdownMenuCheckboxItem
-          checked={inputState.includes(id) as Checked}
+          checked={handleIsSelected(id, inputState) as Checked}
           onCheckedChange={() => handleToggleItem(id, setInputState)}
           key={id}>
           {name}

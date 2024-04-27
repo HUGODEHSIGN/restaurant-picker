@@ -1,4 +1,4 @@
-import ItemContainerProps from '~/components/restaurantForm/dropdown/dropdownContent/ItemContainer';
+import ItemContainer from '~/components/restaurantForm/dropdown/content/ItemContainer';
 import {
   DropdownMenuContent,
   DropdownMenuLabel,
@@ -8,18 +8,29 @@ import {
 type ContentProps = {
   inputState: number[];
   setInputState: React.Dispatch<React.SetStateAction<number[]>>;
+  display: string;
+  loaderData: {
+    id: number;
+    name: string;
+  }[];
 };
 
-export default function Content({ inputState, setInputState }: ContentProps) {
+export default function Content({
+  inputState,
+  setInputState,
+  display,
+  loaderData,
+}: ContentProps) {
   return (
     <DropdownMenuContent
       align="start"
       className="w-56">
-      <DropdownMenuLabel>Cuisine</DropdownMenuLabel>
+      <DropdownMenuLabel>{display}</DropdownMenuLabel>
       <DropdownMenuSeparator />
-      <ItemContainerProps
+      <ItemContainer
         inputState={inputState}
         setInputState={setInputState}
+        loaderData={loaderData}
       />
     </DropdownMenuContent>
   );

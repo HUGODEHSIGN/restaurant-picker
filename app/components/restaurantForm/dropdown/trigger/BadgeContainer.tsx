@@ -1,22 +1,23 @@
-import { useLoaderData } from '@remix-run/react';
 import handleRemoveItem from '~/components/restaurantForm/helpers/handleRemoveItem';
 import { Badge } from '~/components/ui/badge';
-import { loader } from '~/routes/add.restaurant';
 
 type BadgeContainerProps = {
   inputState: number[];
   setInputState: React.Dispatch<React.SetStateAction<number[]>>;
+  loaderData: {
+    id: number;
+    name: string;
+  }[];
 };
 
 export default function BadgeContainer({
   inputState,
   setInputState,
+  loaderData,
 }: BadgeContainerProps) {
-  const { cuisineData } = useLoaderData<typeof loader>();
-
   return (
     <div className="flex flex-row gap-2 bg-white border p-2 rounded-r-md">
-      {cuisineData.map(
+      {loaderData.map(
         ({ id, name }) =>
           inputState.includes(id) && (
             <Badge
