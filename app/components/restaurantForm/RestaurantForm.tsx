@@ -1,11 +1,11 @@
 import { Form } from '@remix-run/react';
 import CuisineDropdown from '~/components/restaurantForm/fields/CuisineDropdown';
 import MealDropdown from '~/components/restaurantForm/fields/MealDropdown';
+import NameInput from '~/components/restaurantForm/fields/NameInput';
 
-import LocationSelect from '~/components/restaurantForm/locationSelect/LocationSelect';
+import LocationSelect from '~/components/restaurantForm/fields/LocationSelect';
 
 import { Button } from '~/components/ui/button';
-import { Input } from '~/components/ui/input';
 
 export default function RestaurantForm() {
   return (
@@ -14,10 +14,7 @@ export default function RestaurantForm() {
       <CuisineDropdown />
       <MealDropdown />
 
-      <Input
-        type="text"
-        name="restaurant"
-      />
+      <NameInput />
       <Button type="submit">Submit</Button>
     </Form>
   );
