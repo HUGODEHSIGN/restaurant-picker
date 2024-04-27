@@ -1,4 +1,4 @@
-import handleRemoveItem from '~/components/restaurantForm/helpers/handleRemoveItem';
+import handleRemoveItem from '~/components/dropdown/helpers/handleRemoveItem';
 import { Badge } from '~/components/ui/badge';
 
 type BadgeContainerProps = {

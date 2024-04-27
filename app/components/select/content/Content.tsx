@@ -1,4 +1,4 @@
-import ItemContainer from '~/components/restaurantForm/select/content/ItemContainer';
+import ItemContainer from '~/components/select/content/ItemContainer';
 import {
   SelectContent,
   SelectGroup,

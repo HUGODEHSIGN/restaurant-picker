@@ -1,5 +1,5 @@
-import Trigger from '~/components/restaurantForm/select/Trigger';
-import Content from '~/components/restaurantForm/select/content/Content';
+import Trigger from '~/components/select/Trigger';
+import Content from '~/components/select/content/Content';
 import { Select } from '~/components/ui/select';
 
 type ComponentProps = {

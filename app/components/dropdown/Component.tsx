@@ -1,5 +1,5 @@
-import Content from '~/components/restaurantForm/dropdown/content/Content';
-import TriggerContainer from '~/components/restaurantForm/dropdown/trigger/TriggerContainer';
+import Content from '~/components/dropdown/content/Content';
+import TriggerContainer from '~/components/dropdown/trigger/TriggerContainer';
 import { DropdownMenu } from '~/components/ui/dropdown-menu';
 
 type ComponentProps = {

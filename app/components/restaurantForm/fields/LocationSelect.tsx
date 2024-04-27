@@ -1,5 +1,6 @@
 import { useLoaderData } from '@remix-run/react';
-import State from '~/components/restaurantForm/select/State';
+import State from '~/components/select/State';
+
 import { loader } from '~/routes/add.restaurant';
 
 export default function LocationSelect() {

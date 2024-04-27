@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import Component from '~/components/restaurantForm/dropdown/Component';
+import Component from '~/components/dropdown/Component';
 
 type StateProps = {
   name: string;

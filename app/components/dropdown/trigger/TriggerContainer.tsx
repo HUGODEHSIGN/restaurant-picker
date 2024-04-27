@@ -1,5 +1,5 @@
-import BadgeContainer from '~/components/restaurantForm/dropdown/trigger/BadgeContainer';
-import Trigger from '~/components/restaurantForm/dropdown/trigger/Trigger';
+import BadgeContainer from '~/components/dropdown/trigger/BadgeContainer';
+import Trigger from '~/components/dropdown/trigger/Trigger';
 
 type TriggerContainerProps = {
   inputState: number[];

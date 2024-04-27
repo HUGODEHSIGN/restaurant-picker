@@ -1,4 +1,4 @@
-import ItemContainer from '~/components/restaurantForm/dropdown/content/ItemContainer';
+import ItemContainer from '~/components/dropdown/content/ItemContainer';
 import {
   DropdownMenuContent,
   DropdownMenuLabel,
