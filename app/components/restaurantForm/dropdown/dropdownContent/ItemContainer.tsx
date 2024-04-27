@@ -5,23 +5,23 @@ import { DropdownMenuCheckboxItem } from '~/components/ui/dropdown-menu';
 import { loader } from '~/routes/add.restaurant';
 import { Checked } from '~/types/etc';
 
-type CuisineDropdownItemsProps = {
-  cuisines: number[];
-  setCuisines: React.Dispatch<React.SetStateAction<number[]>>;
+type ItemContainerProps = {
+  inputState: number[];
+  setInputState: React.Dispatch<React.SetStateAction<number[]>>;
 };
 
-export default function CuisineDropdownItems({
-  cuisines,
-  setCuisines,
-}: CuisineDropdownItemsProps) {
+export default function ItemContainerProps({
+  inputState,
+  setInputState,
+}: ItemContainerProps) {
   const { cuisineData } = useLoaderData<typeof loader>();
 
   return (
     <>
       {cuisineData.map(({ id, name }) => (
         <DropdownMenuCheckboxItem
-          checked={cuisines.includes(id) as Checked}
-          onCheckedChange={() => handleToggleItem(id, setCuisines)}
+          checked={inputState.includes(id) as Checked}
+          onCheckedChange={() => handleToggleItem(id, setInputState)}
           key={id}>
           {name}
         </DropdownMenuCheckboxItem>
