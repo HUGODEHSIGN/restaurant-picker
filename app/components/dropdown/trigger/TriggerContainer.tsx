@@ -18,8 +18,11 @@ export default function TriggerContainer({
   loaderData,
 }: TriggerContainerProps) {
   return (
-    <div className="flex flex-row w-fit">
-      <Trigger display={display} />
+    <div className="flex flex-row">
+      <Trigger
+        inputState={inputState}
+        display={display}
+      />
       <BadgeContainer
         inputState={inputState}
         setInputState={setInputState}

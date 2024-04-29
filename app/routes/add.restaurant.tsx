@@ -1,15 +1,48 @@
 import { ActionFunctionArgs, json } from '@remix-run/node';
 import { db } from 'db/drizzle';
-import { cuisines, locations, meals } from 'db/schema';
+import {
+  cuisines,
+  cuisinesToRestaurants,
+  locations,
+  meals,
+  mealsToRestaurants,
+  restaurants,
+} from 'db/schema';
 import RestaurantForm from '~/components/restaurantForm/RestaurantForm';
 
 export async function action({ request }: ActionFunctionArgs) {
-  const body = await request.formData();
-  // const name = body.get('name') as string;
-  const data = Object.fromEntries(body.entries());
-  console.log(data);
-  return null;
-  // return await db.insert(locations).values({ name });
+  try {
+    const body = await request.formData();
+    // const name = body.get('name') as string;
+    const { name, location, cuisines, meals } = Object.fromEntries(
+      body.entries()
+    );
+    const [newRestaurant] = await db
+      .insert(restaurants)
+      .values({
+        name: name.toString(),
+        locationId: parseInt(location.toString()),
+      })
+      .returning();
+
+    JSON.parse(meals.toString()).forEach(async (mealId: number) => {
+      await db.insert(mealsToRestaurants).values({
+        mealId,
+        restaurantId: newRestaurant.id,
+      });
+    });
+
+    JSON.parse(cuisines.toString()).forEach(async (cuisineId: number) => {
+      await db.insert(cuisinesToRestaurants).values({
+        cuisineId,
+        restaurantId: newRestaurant.id,
+      });
+    });
+
+    return newRestaurant;
+  } catch (err) {
+    console.error(err);
+  }
 }
 
 export async function loader() {

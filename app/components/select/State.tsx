@@ -12,7 +12,7 @@ type StateProps = {
 };
 
 export default function State({ id, name, display, loaderData }: StateProps) {
-  const [inputState, setInputState] = useState<string>();
+  const [inputState, setInputState] = useState<string>('');
   return (
     <>
       <input

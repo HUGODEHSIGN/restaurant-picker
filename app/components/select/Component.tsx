@@ -3,7 +3,7 @@ import Content from '~/components/select/content/Content';
 import { Select } from '~/components/ui/select';
 
 type ComponentProps = {
-  setInputState: React.Dispatch<React.SetStateAction<string | undefined>>;
+  setInputState: React.Dispatch<React.SetStateAction<string>>;
   display: string;
   loaderData: {
     id: number;

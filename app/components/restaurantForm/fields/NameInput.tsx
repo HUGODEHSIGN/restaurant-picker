@@ -3,7 +3,7 @@ import { Label } from '~/components/ui/label';
 
 export default function NameInput() {
   return (
-    <div>
+    <div className="grow">
       <Label htmlFor="restaurant-name">Restaurant Name</Label>
       <Input
         id="restaurant-name"
