@@ -11,7 +11,7 @@ import { loader } from '~/routes/_index';
 
 export default function Location() {
   const locationData = useLoaderData<typeof loader>();
-  const [filterState, setFilterState] = useState<string>();
+  const [filterState, setFilterState] = useState<string>('');
 
   return (
     <>
