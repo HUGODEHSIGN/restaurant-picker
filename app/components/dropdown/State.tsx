@@ -9,10 +9,17 @@ type StateProps = {
     id: number;
     name: string;
   }[];
+  state?: number[];
 };
 
-export default function State({ id, name, display, loaderData }: StateProps) {
-  const [inputState, setInputState] = useState<number[]>([]);
+export default function State({
+  id,
+  name,
+  display,
+  loaderData,
+  state = [],
+}: StateProps) {
+  const [inputState, setInputState] = useState<number[]>(state);
 
   return (
     <>

@@ -9,10 +9,17 @@ type StateProps = {
     id: number;
     name: string;
   }[];
+  state?: string;
 };
 
-export default function State({ id, name, display, loaderData }: StateProps) {
-  const [inputState, setInputState] = useState<string>('');
+export default function State({
+  id,
+  name,
+  display,
+  loaderData,
+  state = '',
+}: StateProps) {
+  const [inputState, setInputState] = useState<string>(state);
   return (
     <>
       <input
@@ -22,6 +29,7 @@ export default function State({ id, name, display, loaderData }: StateProps) {
         value={inputState}
       />
       <Component
+        inputState={inputState}
         setInputState={setInputState}
         display={display}
         loaderData={loaderData}

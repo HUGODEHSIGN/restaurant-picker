@@ -1,11 +1,18 @@
-import { useLoaderData } from '@remix-run/react';
 import State from '~/components/select/State';
 import { Label } from '~/components/ui/label';
 
-import { loader } from '~/routes/add.restaurant';
+type LocationSelectProps = {
+  locationData: {
+    name: string;
+    id: number;
+  }[];
+  locationId?: number;
+};
 
-export default function LocationSelect() {
-  const { locationData } = useLoaderData<typeof loader>();
+export default function LocationSelect({
+  locationData,
+  locationId,
+}: LocationSelectProps) {
   return (
     <div>
       <Label htmlFor="location-select">Location</Label>
@@ -14,6 +21,7 @@ export default function LocationSelect() {
         name="location"
         display="Location"
         loaderData={locationData}
+        state={locationId?.toString()}
       />
     </div>
   );

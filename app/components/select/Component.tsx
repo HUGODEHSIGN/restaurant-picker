@@ -3,6 +3,7 @@ import Content from '~/components/select/content/Content';
 import { Select } from '~/components/ui/select';
 
 type ComponentProps = {
+  inputState: string;
   setInputState: React.Dispatch<React.SetStateAction<string>>;
   display: string;
   loaderData: {
@@ -12,12 +13,15 @@ type ComponentProps = {
 };
 
 export default function Component({
+  inputState,
   setInputState,
   display,
   loaderData,
 }: ComponentProps) {
   return (
-    <Select onValueChange={setInputState}>
+    <Select
+      onValueChange={setInputState}
+      value={inputState}>
       <Trigger display={display} />
       <Content
         display={display}

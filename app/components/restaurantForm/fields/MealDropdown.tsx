@@ -1,11 +1,15 @@
-import { useLoaderData } from '@remix-run/react';
 import State from '~/components/dropdown/State';
 import { Label } from '~/components/ui/label';
 
-import { loader } from '~/routes/add.restaurant';
+type MealDropdownProps = {
+  mealData: {
+    name: string;
+    id: number;
+  }[];
+  mealIds?: number[];
+};
 
-export default function MealDropdown() {
-  const { mealData } = useLoaderData<typeof loader>();
+export default function MealDropdown({ mealData, mealIds }: MealDropdownProps) {
   return (
     <div>
       <Label htmlFor="meal-dropdown">Meals</Label>
@@ -14,6 +18,7 @@ export default function MealDropdown() {
         name="meals"
         display="Meals"
         loaderData={mealData}
+        state={mealIds}
       />
     </div>
   );

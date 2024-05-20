@@ -21,7 +21,6 @@ export async function loader() {
       },
     },
   });
-  data.forEach((data) => console.log(data));
   return json(data);
 }
 

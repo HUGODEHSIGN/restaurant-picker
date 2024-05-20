@@ -1,4 +1,5 @@
 import { ActionFunctionArgs, json } from '@remix-run/node';
+import { useLoaderData } from '@remix-run/react';
 import { db } from 'db/drizzle';
 import {
   cuisines,
@@ -57,5 +58,6 @@ export async function loader() {
 }
 
 export default function Page() {
-  return <RestaurantForm />;
+  const data = useLoaderData<typeof loader>();
+  return <RestaurantForm {...data} />;
 }
